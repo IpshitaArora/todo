@@ -10,10 +10,7 @@ const errorHandler = require("./middleware/errorHandler");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// console.log("authRoutes:", authRoutes);
-// console.log("todoRoutes:", todoRoutes);
-// console.log("userRoutes:", userRoutes);
-// console.log("errorHandler:", errorHandler);
+
 
 
 // DB Connection
