@@ -44,4 +44,3 @@ router.delete("/:id", auth, roleCheck(["admin"]), async (req, res) => {
 });
 
 module.exports = router;
-``
