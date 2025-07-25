@@ -37,6 +37,10 @@ exports.updateTodo = async (req, res, next) => {
         if (!todo && req.user.role !== "admin") {
             return res.status(403).json({ message: "Not allowed to update this todo" });
         }
+    if (req.user.role !== "admin" && todo.user.toString() !== req.user._id.toString()) {
+            return res.status(403).json({ message: "Not allowed to update this todo" });
+        }
+
         Object.assign(todo, req.body);
         await todo.save();
         res.json(todo);
@@ -53,7 +57,7 @@ exports.deleteTodo = async (req, res, next) => {
         if (req.user.role !== "admin" && todo.user.toString() !== req.user._id.toString()) {
             return res.status(403).json({ message: "Not allowed to delete this todo" });
         }
-        await todo.remove();
+        await todo.deleteOne();
         res.json({ message: "Todo deleted" });
     } catch (err) {
         next(err);

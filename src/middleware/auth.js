@@ -16,10 +16,6 @@ const auth = async (req, res, next) => {
     }
 };
 
-module.exports = auth;
-
-
-
 
 const verifyToken = (req,res,next) => {
     let token;
@@ -56,4 +52,8 @@ function authorizeRoles(allowedRoles) {
     };
 }
 
-module.exports = verifyToken;
+module.exports = {
+    auth,
+    verifyToken,
+    authorizeRoles
+};

@@ -16,6 +16,7 @@ function authorizeRoles(...allowedRoles) {
     };
 }
 
-module.exports = authorizeRoles;
-
-module.exports = roleCheck;
+module.exports = {
+    authorizeRoles,
+    roleCheck
+}
